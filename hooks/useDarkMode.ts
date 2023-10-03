@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from 'react';
 
 export function useDarkMode() {
@@ -15,7 +17,8 @@ export function useDarkMode() {
     }
   }
   useEffect(() => {
-    toggle()
+    if (window)
+      toggle()
   }, [])
   // MediaQueryList
   const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
