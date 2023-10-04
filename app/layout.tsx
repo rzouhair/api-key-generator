@@ -13,9 +13,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.APP_URL as string),
   alternates: {
     canonical: '/',
-    languages: {
-      'en-US': '/en-US',
-    },
   },
   title,
   description,
