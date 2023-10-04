@@ -1,7 +1,26 @@
 import { Separator } from '@/components/ui/separator'
 import ApiKeyGenerator from '@/components/app/ApiKeyGenerator'
+import { Metadata } from 'next'
+import { description } from '../layout'
+
+const name = 'API Keys Generation Page'
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.APP_URL as string),
+  alternates: {
+    canonical: '/api-keys',
+    languages: {
+      'en-US': '/en-US',
+    },
+  },
+}
 
 export default function ApiKeys() {
+  const jsonLd = {
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    name,
+    description,
+  }
   return (
     <main className='max-w-screen-md w-full mx-auto px-4'>
       <h1 className='font-bold text-4xl md:text-6xl text-center mt-24 mb-8'>API Keys generation</h1>
