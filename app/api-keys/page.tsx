@@ -91,6 +91,10 @@ export default function ApiKeys() {
           <p><em>Disclaimer: This service is provided for educational and testing purposes. Always follow best practices for API key management in production environments.</em></p>
         </section>
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </main>
   )
 }
