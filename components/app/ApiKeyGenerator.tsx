@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select"
 import { generateAlphabeticKey, generateAlphanumKey, generateHexKeys, generateTasasSecurityKey, generateUuid } from '@/lib/apiKeys'
 import { useState } from 'react'
+import { event } from '@/gtag'
 
 export default function ApiKeyGenerator() {
   useDarkMode()
@@ -46,8 +47,15 @@ export default function ApiKeyGenerator() {
       "uuid": generateUuid
     }
 
-    if (selectedKeyType)
+    if (selectedKeyType) {
       setGeneratedKey(requestedFunctionType[selectedKeyType]?.() as string)
+      event({
+        action: 'click',
+        label: 'Generate API Key',
+        value: selectedKeyType,
+        category: 'Generate'
+      })
+    }      
     else {
       setGeneratedKey(undefined)
     }
@@ -57,6 +65,12 @@ export default function ApiKeyGenerator() {
     if (!generatedKey)
       return
     navigator.clipboard.writeText(generatedKey)
+    event({
+      action: 'click',
+      label: 'Copied the generated key',
+      value: `Type: ${selectedKeyType} - Key: ${generatedKey}`,
+      category: 'Copy'
+    })
     setCopied(true)
     setTimeout(() => {
       setCopied(false)
