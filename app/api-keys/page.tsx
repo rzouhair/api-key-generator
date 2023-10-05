@@ -23,7 +23,8 @@ export default function ApiKeys() {
   }
   return (
     <main className='max-w-screen-md w-full mx-auto px-4'>
-      <h1 className='font-bold text-4xl md:text-6xl text-center mt-24 mb-8'>API Keys generation</h1>
+      <h1 className='font-bold text-4xl md:text-6xl text-center mt-24'>API Keys generation</h1>
+      <h2 className='text-lg md:text-xl text-center mt-4 mb-8 text-muted-foreground'>Generate random and unique keys for your APIs for free and in a single click</h2>
       <section>
         <ApiKeyGenerator />
         <Separator className='my-8' />

@@ -85,8 +85,8 @@ export default function ApiKeyGenerator() {
       </CardHeader>
       <CardContent>
         <div className='flex items-center justify-center gap-4 flex-col md:flex-row'>
-          <Select onValueChange={setSelectedKeyType}>
-            <SelectTrigger className="w-full">
+          <Select onValueChange={setSelectedKeyType} name="api-key-type">
+            <SelectTrigger className="w-full" name='api-key-type-trigger'>
               <SelectValue placeholder="Select an api key type" />
             </SelectTrigger>
             <SelectContent>
@@ -103,7 +103,7 @@ export default function ApiKeyGenerator() {
               </SelectGroup>
             </SelectContent>
           </Select>
-          <Button className='w-full md:w-[fit-content]' onClick={generateKey} disabled={!selectedKeyType}>Generate</Button>
+          <Button name="generate" className='w-full md:w-[fit-content]' onClick={generateKey} disabled={!selectedKeyType}>Generate</Button>
         </div>
       </CardContent>
       <CardFooter>
