@@ -7,7 +7,7 @@ const name = 'API Keys Generation Page'
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.APP_URL as string),
   alternates: {
-    canonical: '/api-keys',
+    canonical: '/',
     languages: {
       'en-US': '/en-US',
     },
